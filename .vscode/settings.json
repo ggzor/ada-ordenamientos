@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "SConstruct": "python",
+        "chrono": "cpp",
+        "stdio.h": "c"
+    }
+}
