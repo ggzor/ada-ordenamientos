@@ -10,7 +10,6 @@ formatoArchivo = 'Numeros_{}.txt'
 
 horaInicio = datetime.now()
 
-
 def obtenerBloques(n, medidaBloque):
     while n > 0:
         if n >= medidaBloque:

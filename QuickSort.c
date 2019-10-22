@@ -5,6 +5,7 @@ void quicksort(int a[], int l, int u) {
   if (l < u) {
     p = a[u];
 
+    // Separación de elementos con respecto al pivote
     for (j = l; j < u; j++) {
       if (a[j] < p) {
         temp = a[i];
@@ -15,10 +16,12 @@ void quicksort(int a[], int l, int u) {
       }
     }
 
+    // Colocación del pivote en la posición final
     temp = a[i];
     a[i] = a[u];
     a[u] = temp;
 
+    // Casos recursivos
     quicksort(a, l, i - 1);
     quicksort(a, i + 1, u);
   }

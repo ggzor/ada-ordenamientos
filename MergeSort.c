@@ -5,9 +5,11 @@ void merge(int a[], int l, int m, int u) {
   int n1 = m - l + 1;
   int n2 = u - m;
 
+  // Reserva de memoria para los arreglos
   int *L = (int *) malloc(sizeof(int) * n1);
   int *U = (int *) malloc(sizeof(int) * n2);
 
+  // Copia de datos a los arreglos temporales
   for (i = 0; i < n1; i++)
     L[i] = a[l + i];
   
@@ -18,6 +20,7 @@ void merge(int a[], int l, int m, int u) {
   j = 0;
   k = l;
 
+  // Unión de arreglos
   while (i < n1 && j < n2)
     a[k++] = L[i] <= U[j] ? L[i++] : U[j++];
 
@@ -27,6 +30,7 @@ void merge(int a[], int l, int m, int u) {
   while (j < n2)
     a[k++] = U[j++];
 
+  // Liberación de memoria adquirida
   free(L);
   free(U);
 }

@@ -1,3 +1,4 @@
+ // Ordenamiento Combsort
  void ordenar(int a[], int n) {
    int cambio, i, j, temp, fd = n;
 
