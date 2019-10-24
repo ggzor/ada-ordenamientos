@@ -4,8 +4,8 @@
 
 extern void ordenar(int a[], int n);
 
-void imprimirDuracion(long nanosegundos) {
-  long factores[] = { 
+void imprimirDuracion(int64_t nanosegundos) {
+  int64_t factores[] = { 
     1000, // Microsegundos
     1000, // Milisegundos
     1000, // Segundos
@@ -15,10 +15,10 @@ void imprimirDuracion(long nanosegundos) {
   }; 
   char nombres[][3] = { "ns", "us", "ms", "s", "m", "h", "d" };
 
-  long valores[7];
+  int64_t valores[7];
   int i = 0;
 
-  for (long factor : factores) {
+  for (int64_t factor : factores) {
     valores[i] = nanosegundos % factor;
     nanosegundos /= factor;
     i++;
@@ -74,7 +74,12 @@ int main(int argc, char **argv) {
     int cantidad;
     sscanf(argv[1], "%*[^0-9]%d", &cantidad);
 
-    char *nombreOrdenamiento = &argv[0][2];
+    #ifdef __linux__
+      char *nombreOrdenamiento = &argv[0][2];
+    #else
+      char *nombreOrdenamiento = argv[0];
+    #endif
+  
     std::cout << "Se ejecutará el ordenamiento " << nombreOrdenamiento << " del archivo \"" << argv[1] << "\". ";
     imprimirFechaActual();
     std::cout << "Cantidad de números: " << cantidad << std::endl;
